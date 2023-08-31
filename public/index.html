@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <title>Title</title>
+    <link rel="stylesheet" href="pyScript/pyscriptCSS.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="shh.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="less/emojiStyle.less" />
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+
+    <!-- ⪢⪢⪢ FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Proza+Libre&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="gallery/favicon.png">
+</head>
+<body>
+<!-- ⪢⪢⪢ Header-->
+<div id="header">
+    <ul>
+        <li><a href="index.html"><img src="gallery/mainLogo.svg" id="icon" alt="oh" draggable="false"></a></li>
+        <li id="nameText"><a id="ntxTxtLnk" href="index.html">AI-emojify</a></li>
+        <li><a id="ko-fiLink" href="https://ko-fi.com/maksiks"><img src="gallery/Ko-fi.svg" id="ko-fiIcon" alt="oh" draggable="false"></a></li>
+        <li id="contactText"><a id="ctcTxtLnk" href="">contact</a></li>
+        <!-- Insert the contact page-->
+        <!-- Also a friendly reminder to add the arrow-->
+        <!-- maybe add a prompt log-->
+    </ul>
+</div>
+
+<img src="gallery/mainTxt.webp" id="mainTxt" alt="oh no, imagine I'm like text">
+<!-- ⪢⪢⪢ Video-->
+<div id="animContainer">
+    <video id = "animBoxes">
+        <source src="gallery/video/Textbox%20squish.webm"
+                type="video/webm">
+    </video>
+</div>
+
+<!-- ⪢⪢⪢ Tooltips-->
+<div id="tooltipDiv">You will be put here next time you visit</div>
+
+<!-- ⪢⪢⪢ First (main page) form-->
+<div id="mainForm">
+    <textarea id="emojify" name="main"></textarea><br><br>
+    <img src="gallery/txtBox.svg" id="formBg" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
+    <img src="gallery/caret.svg" id="caret" alt="I am a blinking caret. Blink blink.">
+</div>
+<!-- ⪢⪢⪢ Mini formies-->
+<div id="miniForm1">
+    <textarea id="emojifyMini1" name="main" readonly></textarea><br><br>
+    <img src="gallery/txtBoxSmall.svg" id="formBgMini1" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
+    <img src="gallery/caret.svg" id="caretMini1" alt="I am a blinking caret. Blink blink.">
+</div>
+
+<div id="miniForm2">
+    <textarea id="emojifyMini2" name="main" readonly></textarea><br><br>
+    <img src="gallery/txtBoxSmall.svg" id="formBgMini2" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
+    <img src="gallery/caret.svg" id="caretMini2" alt="I am a blinking caret. Blink blink.">
+</div>
+
+<!-- ⪢⪢⪢ Main transfer button -->
+<button py-click="passTxt()" id="paddingOne" class="py-button"></button>
+<h1 id="buttonTxt">emojify!</h1>
+
+<!--⪢⪢⪢ Footer -->
+<div id="footerContainer">
+    <div id="line"></div>
+    <div id="logoContainer">
+        <div class="logos" id="youtubeLogo"><a href="https://www.youtube.com/channel/UCtPK7NNErHRXL7pZk0VflLA"></a></div>
+        <div class="logos" id="twitterLogo">
+            <a href="https://twitter.com/maksiksq"></a>
+            <div class="logos" id="xLogo"><a href="https://twitter.com/maksiksq"></a></div>
+        </div>
+        <div class="logos" id="githubLogo"><a href="https://github.com/maksiksking"></a></div>
+        <div class="logos" id="discordLogo">
+            <p id="discordTxt">@maksiks</p>
+            <a href="https://discord.com"></a>
+        </div>
+        <p id="emailTxt">maksiks.touch@gmail.com</p>
+    </div>
+    <div id="footerTxtContainer">
+        <p id="footerTxt">Made by Maksiks</p>
+        <p id="blobHideout"><img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <img src="gallery/blobDevour.gif" alt="blob nom nom YEEE" width="22vh" height="22vh">
+            <br>Have a cookie! -><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D">🍪</a><-</p>
+    </div>
+</div>
+
+
+<!-- ⪢⪢⪢ Conversion script (first one) + video box anim handler -->
+<script>
+    paddingOne = document.getElementById("paddingOne");
+    theForm = document.getElementById("emojify");
+    animVid = document.getElementById("animBoxes");
+    headingTxt = document.getElementById("mainTxt")
+    buttonTxt = document.getElementById("buttonTxt")
+    footer = document.getElementById("footerContainer")
+    let stepElapsed;
+    let passingVar;
+    let formRecall;
+    let elapse;
+
+    paddingOne.addEventListener("click", () => {
+        if (localStorage.isOn === "true" || localStorage.isOn === undefined) {
+            if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b === undefined) {
+                localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
+            }
+            if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b > 15) {
+                fetch("/vC4B5cmd5ybVouxbC3qnjldC")
+                    .then(response => response.json())
+                    .then(data => {
+                        passingVar = new Date(data.date);
+
+                        formRecall = localStorage.oldPassingVar
+                        elapse = passingVar.getTime() - new Date(formRecall)
+                        stepElapsed = elapse / (1000 * 60 * 60)
+                    })
+                caretMini2.style.opacity = "0"
+
+                if (!(stepElapsed > 24)) {
+                    function _0x3ec3(_0x89ad1f,_0x55855b){var _0x3ec316=_0x5585();return _0x3ec3=function(_0x45a5e0,_0x2f1339){_0x45a5e0=_0x45a5e0-0x191;var _0x1254f9=_0x3ec316[_0x45a5e0];return _0x1254f9;},_0x3ec3(_0x89ad1f,_0x55855b);}var _0x577f5a=_0x3ec3;formInputMini2[_0x577f5a(0x192)]=_0x577f5a(0x191);function _0x5585(){var _0x6ab15b=['❤️\x20❤️\x20❤️\x20\x0aSorry,\x20you\x20are\x20out\x20of\x20prompts\x20for\x20today.\x20\x0a\x0aHope\x20you\x20understand,\x0arunning\x20this\x20website\x20is\x20not\x20free\x20and\x20these\x20ads\x0ado\x20not\x20make\x20enough\x20to\x20cover\x20the\x20costs.\x0a\x0aYou\x20get\x2015\x20prompts\x20per\x20day\x20which\x20is\x20still\x0asizable\x20enough.\x20Just\x20come\x20back\x20tomorrow.\x0a\x0aThe\x20only\x20way\x20to\x20extend\x20the\x20prompt\x20limit\x0acurrently\x20is\x20to\x20become\x20a\x20Ko-Fi\x20supporter\x20\x0aand\x20ask\x20me.\x20-\x20Maksiks','innerHTML'];_0x5585=function(){return _0x6ab15b;};return _0x5585();}
+                } else {
+                    caretMini1.style.opacity = "0"
+                    caretMini2.style.opacity = "0"
+
+                    // how did u even get here
+                }
+            } else {
+                let d = parseInt(localStorage.Ax3kdBnO4klo3pMvl39kFn3b)
+                d += 1
+
+                localStorage.Ax3kdBnO4klo3pMvl39kFn3b = d
+
+                // thePrompt = theForm.value
+                caretMini1.style.opacity = "0"
+                caretMini2.style.opacity = "0"
+
+                // return thePrompt
+            }
+        }
+    })
+
+    function paddingAdd() {
+        if (localStorage.isOn === "false") {
+            if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b === undefined) {
+                localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
+            }
+            if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b >= 15) {
+                console.log(localStorage.Ax3kdBnO4klo3pMvl39kFn3b)
+                console.log("eeeeeeeeee")
+                fetch("/vC4B5cmd5ybVouxbC3qnjldC")
+                    .then(response => response.json())
+                    .then(data => {
+                        passingVar = new Date(data.date);
+
+                        formRecall = localStorage.oldPassingVar
+                        elapse = passingVar.getTime() - new Date(formRecall)
+                        stepElapsed = elapse / (1000 * 60 * 60)
+                    })
+                caretMini2.style.opacity = "0"
+
+                if (stepElapsed > 24) {
+                    localStorage.oldPassingVar = passingVar
+                    localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
+
+                    paddingAdd()
+                } else {
+                    function _0x3ec3(_0x89ad1f,_0x55855b){var _0x3ec316=_0x5585();return _0x3ec3=function(_0x45a5e0,_0x2f1339){_0x45a5e0=_0x45a5e0-0x191;var _0x1254f9=_0x3ec316[_0x45a5e0];return _0x1254f9;},_0x3ec3(_0x89ad1f,_0x55855b);}var _0x577f5a=_0x3ec3;formInputMini2[_0x577f5a(0x192)]=_0x577f5a(0x191);function _0x5585(){var _0x6ab15b=['❤️\x20❤️\x20❤️\x20\x0aSorry,\x20you\x20are\x20out\x20of\x20prompts\x20for\x20today.\x20\x0a\x0aHope\x20you\x20understand,\x0arunning\x20this\x20website\x20is\x20not\x20free\x20and\x20these\x20ads\x0ado\x20not\x20make\x20enough\x20to\x20cover\x20the\x20costs.\x0a\x0aYou\x20get\x2015\x20prompts\x20per\x20day\x20which\x20is\x20still\x0asizable\x20enough.\x20Just\x20come\x20back\x20tomorrow.\x0a\x0aThe\x20only\x20way\x20to\x20extend\x20the\x20prompt\x20limit\x0acurrently\x20is\x20to\x20become\x20a\x20Ko-Fi\x20supporter\x20\x0aand\x20ask\x20me.\x20-\x20Maksiks','innerHTML'];_0x5585=function(){return _0x6ab15b;};return _0x5585();}
+                }
+            } else {
+                let a = parseInt(localStorage.Ax3kdBnO4klo3pMvl39kFn3b)
+                a += 1
+
+                localStorage.Ax3kdBnO4klo3pMvl39kFn3b = a
+
+                // thePrompt = formInputMini1.value
+                caretMini1.style.opacity = "0"
+                caretMini2.style.opacity = "0"
+
+                // return thePrompt
+                console.log("success")
+            }
+        }
+    }
+
+    paddingOne.addEventListener("click", paddingAdd)
+
+    paddingOne.addEventListener("click", () => {
+        if (localStorage.isOn === "true" || localStorage.isOn === undefined) {
+            delayedAppearance()
+            textAnim()
+        }
+        else {
+            console.log("You've already seen this animation")
+        }
+    })
+
+    function ifAlreadyClicked() {
+        if (localStorage.isOn === "false") {
+            tooltip.textContent = "Hello there! 🌌👋"
+            footer.style.display = "flex"
+            footer.style.bottom = "0"
+            headingTxt.src = "gallery/alrPageTxtReal.webp"
+            headingTxt.style.top = "24%"
+
+            form.style.display = "none";
+            formMini1.style.display = "initial"
+            formMini2.style.display = "initial"
+
+            formMini1.style.top = "47%"
+            formMini2.style.top = "47%"
+
+            paddingOne.style.top = "79vh"
+            buttonTxt.style.top = "79vh"
+
+            caretMini1.style.animation = "caretBlink .5s alternate infinite"
+            caretMini2.style.animation = "caretBlink .5s alternate infinite"
+
+            tooltip.style.opacity = "100%"
+        }
+        else {
+            console.log("not replaced")
+        }
+    }
+
+    addEventListener("load", ifAlreadyClicked)
+</script>
+
+<!-- ⪢⪢⪢ Responsive script for text menu-->
+<script>
+    form = document.getElementById("mainForm");
+    formImage = document.getElementById("formBg");
+    formInput = document.getElementById("emojify");
+
+    paddingOne.addEventListener("click", () => {
+        if (localStorage.m52I4Bdf09Mvl4vi6bf8vNgi === undefined) {
+            localStorage.m52I4Bdf09Mvl4vi6bf8vNgi = 4
+        } else {
+            let b = parseInt(localStorage.m52I4Bdf09Mvl4vi6bf8vNgi)
+            b += 1
+
+            localStorage.m52I4Bdf09Mvl4vi6bf8vNgi = b
+        }
+        if (localStorage.m52I4Bdf09Mvl4vi6bf8vNgi >= 5) {
+            localStorage.m52I4Bdf09Mvl4vi6bf8vNgi = 0
+        }
+    })
+
+    function sizeChangeForm() {
+        const dimInput = formInput.getBoundingClientRect()
+
+        // The percentage is added in js because yes
+
+        formInput.style.width = formImage.offsetWidth*0.95 + "px"
+        formInput.style.right = dimInput.right + dimInput.right*0.15 + "px"
+        // ^ the right one doesn't actually do anything but it better be just in case
+        // Probably because it's transformed in css
+
+        formInput.style.height = formImage.offsetHeight*0.88 + "px"
+        formInput.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
+        form.style.height = formInput.style.height
+    }
+
+    addEventListener("resize", sizeChangeForm)
+    addEventListener("load", sizeChangeForm)
+
+    // mini 1
+
+    formMini1 = document.getElementById("miniForm1");
+    formImageMini1 = document.getElementById("formBgMini1");
+    formInputMini1 = document.getElementById("emojifyMini1");
+
+    function sizeChangeFormMini1() {
+        const dimInput = formInputMini1.getBoundingClientRect()
+
+        formInputMini1.style.width = formImageMini1.offsetWidth*0.95 + "px"
+        formInputMini1.style.right = dimInput.right + dimInput.right*0.15 + "px"
+        // oh, this one actually does nothing too but the whole thing. I think.
+
+        formInputMini1.style.height = formImageMini1.offsetHeight*0.88 + "px"
+        formInputMini1.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
+    }
+
+    addEventListener("resize", sizeChangeFormMini1)
+    addEventListener("load", sizeChangeFormMini1)
+
+    // mini 2
+
+    formMini2 = document.getElementById("miniForm2");
+    formImageMini2 = document.getElementById("formBgMini2");
+    formInputMini2 = document.getElementById("emojifyMini2");
+
+    function sizeChangeFormMini2() {
+        const dimInput = formInputMini2.getBoundingClientRect()
+
+        formInputMini2.style.width = formImageMini2.offsetWidth*0.95 + "px"
+        formInputMini2.style.right = dimInput.right + dimInput.right*0.15 + "px"
+        // oh, this one actually does nothing too but the whole thing. I think.
+
+        formInputMini2.style.height = formImageMini2.offsetHeight*0.88 + "px"
+        formInputMini2.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
+    }
+
+    addEventListener("resize", sizeChangeFormMini1)
+    addEventListener("load", sizeChangeFormMini1)
+</script>
+
+<!--⪢⪢⪢ Caret blink disappear + proper waiting functions -->
+<script>
+    const caret = document.getElementById("caret")
+    const caretMini1 = document.getElementById("caretMini1")
+    const caretMini2 = document.getElementById("caretMini2")
+    let youMayPass = false
+
+    if (localStorage.isOn === "false") {
+        youMayPass = true
+        caretMini1.style.opacity = "100%"
+        caretMini2.style.opacity = "100%"
+
+        formInputMini1.readOnly = false
+
+        formInputMini1.style.color = "white"
+        formInputMini2.style.color = "white"
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    paddingOne.addEventListener("click", () => {
+        if (localStorage.LxKf6mA34bdi4m4B9nV2NNl1 === undefined) {
+            localStorage.LxKf6mA34bdi4m4B9nV2NNl1 = 3
+        } else {
+            let c = parseInt(localStorage.LxKf6mA34bdi4m4B9nV2NNl1)
+            c += 1
+
+            localStorage.LxKf6mA34bdi4m4B9nV2NNl1 = c
+        }
+        if (localStorage.LxKf6mA34bdi4m4B9nV2NNl1 >= 5) {
+            localStorage.LxKf6mA34bdi4m4B9nV2NNl1 = 0
+        }
+    })
+
+    async function delayedBlink() {
+        await sleep(500);
+        caret.style.opacity = "100%"
+    }
+
+    async function delayedBlinkMini1() {
+        await sleep(500);
+        caretMini1.style.opacity = "100%"
+    }
+    async function delayedBlinkMini2() {
+        await sleep(500);
+        caretMini2.style.opacity = "100%"
+    }
+
+    async function textAnim() {
+        await sleep(4000)
+        headingTxt.style.animation = "txtAnim 4s linear forwards"
+        await sleep(4000)
+        headingTxt.src = "gallery/alrPageTxt.webp"
+        headingTxt.style.animation = "txtAnimTo 3s linear forwards"
+    }
+
+    async function executeIn() {
+        await sleep(2000)
+        swipSwap()
+    }
+
+    async function delayedAppearance() {
+        formInput.style.animation="textBlink .2s linear alternate infinite"
+        formInputMini1.value = formInput.value
+
+        await sleep(3000)
+        animVid.style.display = "block";
+        form.style.display = "none";
+        animVid.play();
+        animVid.style.animation = "animTransition 4s linear forwards 4s";
+
+        await sleep(5400);
+        formMini1.style.display = "initial"
+        animVid.style.animation="animBlink 4s linear forwards";
+        formMini2.style.display = "initial"
+
+        localStorage.isOn = false
+
+        await sleep(5400);
+        youMayPass = true
+
+        caretMini1.style.animation = "caretBlink .5s alternate infinite"
+        caretMini2.style.animation = "caretBlink .5s alternate infinite"
+
+        formInputMini1.style.animation="textBlink .4s linear alternate 3"
+        formInputMini2.style.animation="textBlink .4s linear alternate-reverse 3 forwards"
+        formInputMini1.style.color = "white"
+
+        formInputMini1.readOnly = false
+
+        if (formInputMini1.value === "") {
+            caretMini1.style.animation = "none"
+            caretMini2.style.animation = "none"
+
+            caretMini1.offsetHeight;
+            caretMini2.offsetHeight;
+
+            caretMini1.style.animation = "caretBlink .5s alternate infinite"
+            caretMini2.style.animation = "caretBlink .5s alternate infinite"
+            // resets the anim so they're in sync
+
+            caretMini1.style.opacity = "100%"
+            caretMini2.style.opacity = "100%"
+        }
+
+        formMini1.style.animation = "formiesUp 2s ease-in-out forwards"
+        formMini2.style.animation = "formiesUp 2s ease-in-out forwards"
+        paddingOne.style.animation = "buttonUp 2s ease-in-out forwards"
+        buttonTxt.style.animation = "buttonUp 2s ease-in-out forwards"
+
+        footer.style.display = "flex"
+        footer.style.animation = "footerPopping 3s forwards ease-in-out"
+        tooltip.style.opacity = "100%"
+    }
+
+    function vanish() {
+        if (document.activeElement === formInput) {
+            caret.style.opacity = "0"
+        } else {
+            if (formInput.value === "") {
+                delayedBlink()
+            }
+        }
+    }
+
+    function vanishMini1() {
+        if (document.activeElement === formInputMini1) {
+            caretMini1.style.opacity = "0"
+        } else {
+            if (formInputMini1.value === "" && youMayPass === true) {
+                delayedBlinkMini1()
+            }
+        }
+    }
+
+    function vanishMini2() {
+        if (document.activeElement === formInputMini2) {
+            caretMini2.style.opacity = "0"
+        } else {
+            if (formInputMini2.value === "" && youMayPass === true) {
+                delayedBlinkMini2()
+            }
+        }
+    }
+
+    addEventListener("click", vanish)
+    addEventListener("click", vanishMini1)
+    addEventListener("click", vanishMini2)
+</script>
+
+<!-- ⪢⪢⪢ Footer copy -->
+<script>
+    const emailTxt = document.getElementById("emailTxt")
+    const discordTxt = document.getElementById("discordTxt")
+
+    function emailCopy() {
+        navigator.clipboard.writeText("maksiks.touch@gmail.com");
+    }
+
+    function discordCopy() {
+        navigator.clipboard.writeText("@maksiks");
+    }
+
+    emailTxt.addEventListener("click", emailCopy)
+    discordTxt.addEventListener("click", discordCopy)
+</script>
+
+<!--⪢⪢⪢ Tooltip handler -->
+<script>
+    const tooltip = document.getElementById("tooltipDiv")
+    let random
+
+    let slowdown = false
+
+    tooltip.style.width = "43vw"
+
+    const tooltips = [
+        "Tip: If AI generates nothing, try adding \"In emoji\" to your prompt.",
+        "Tip: You can use command prompts like \"Explain the script of bee movie\".",
+        "Tip: The response is too short? Try \"Keep your response bigger\".",
+        "Tip: You can use modificators. Try adding \"But every second emoji is a taco\" to a prompt.",
+        // "Vice-versa mode allows you to transform emoji into text. It's really bad at it.",
+        "Tip: Did you know? Text based AI is basically a hypercharged autocomplete with a brain like picking mechanism.",
+        "Tip: If you enter nothing, a random prompt is generated.",
+        "Tip: One day it generated me this funky thing 📈⃣⃣⃣⃣",
+        "Plug: Running this website is not free and these 2 ads don't make enough, consider becoming a Ko-Fi supporter.",
+        "Thank you for visiting, random stranger on the internet.",
+        "Tip: 🥐🔪🥐🔪🥐🔪🥐🔪 😨 🤖🤖⬅️👿",
+        "Tip: Someone stole all my cookies. One of them did something special on click",
+        "Plug: Check out my social media at the bottom of the page.",
+        "Tip: This website is 1200+ lines of code in total.",
+        "Tip: Have a nice day. Seriously, just have a nice day whoever you are.",
+        "Support the heroes of Ukraine 🌻, let's end this war together! <a href='https://savelife.in.ua'>💙 savelife.in.ua 💛</a>",
+        "Support the heroes of Ukraine 🌻, let's end this war together! <a href='https://savelife.in.ua'>💙 savelife.in.ua 💛</a>",
+        "Support the heroes of Ukraine 🌻, let's end this war together! <a href='https://savelife.in.ua'>💙 savelife.in.ua 💛</a>",
+        "Tip: I think I spent way too much time on this website",
+        "Tip: The background is also AI generated. Of course it is.",
+        "Tip: When the AI is confused it often gives out this emoji 🤔, add some clarity"
+    ]
+
+    function swipSwap(isOnLoad) {
+        const oldRandom = random
+
+        random = Math.floor(Math.random() * 20);
+        while (oldRandom === random) {
+            random = Math.floor(Math.random() * 20);
+        }
+
+        if (isOnLoad !== undefined) {
+            executeIn()
+            return
+        }
+
+        if (random === 4 || random === 7) {
+            if (tooltip.style.width === "43vw") {
+                tooltip.style.width = tooltip.offsetWidth * 1.3 + "px"
+                slowdown = true
+            }
+        }
+        else {
+            tooltip.style.width = "43vw"
+        }
+
+        if (slowdown === true) {
+            setTimeout(() => {
+                tooltip.innerHTML = tooltips[random]
+                slowdown = false
+            },1000)
+        } else {
+            tooltip.innerHTML = tooltips[random]
+        }
+    }
+
+    setInterval(swipSwap, 10000)
+    addEventListener("load", swipSwap, true)
+</script>
+
+
+<!--⪢⪢⪢ Ignore me -->
+<py-script>
+import json
+import time
+import re
+
+from js import localStorage, document, console, XMLHttpRequest
+
+def passTxt():
+    time.sleep(1)
+    from js import thePrompt
+
+    bearer = "Bearer " + localStorage.getItem("openAI")
+
+    engine = "text-davinci-003"
+
+    xhr = XMLHttpRequest.new()
+    xhr.open("POST", "https://api.openai.com/v1/completions", False)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.setRequestHeader("Authorization", bearer)
+
+    theNeatPrompt = f'You are a program that converts text into emoji. You are not permitted to use text characters. Do not write any text, just emojies. Again, you are not permitted to use any characters other than emoji even for comment. \n For example: "Crab ate a sock an appeared on an island in India under green sun" you convert it to "🦀🍽️🧦🏝️🇮🇳🌞" \n Now turn this into emoji: {thePrompt}'
+
+    if thePrompt == "":
+        data = json.dumps({
+            "model": engine,
+            "prompt": theNeatPrompt,
+            "max_tokens": 550,
+            "temperature": 1.6,
+            "top_p": 0.3,
+            "frequency_penalty": 1.2,
+            "presence_penalty": 1
+        })
+    else:
+        data = json.dumps({
+            "model": engine,
+            "prompt": theNeatPrompt,
+            "max_tokens": 550,
+            "temperature": 0.3,
+            "top_p": 0.3,
+            "frequency_penalty": 1.2,
+            "presence_penalty": 1
+        })
+
+    xhr.send(data)
+
+    json_response = json.loads(xhr.response)
+    completion_text = json_response['choices'][0]['text']
+
+    completionDiv = document.getElementById("emojifyMini2")
+
+    input_string = completion_text.strip()
+
+    ifTextOnly = False
+
+    m = re.compile(r'[a-zA-Z0-9()_/., "]*$')
+    if m.match(input_string):
+        ifTextOnly = True
+    else:
+        blankPrompt = []
+        for i in input_string:
+            doAppend = True
+            if not re.search(r'[^a-zA-Z0-9()_/., "]', i):
+                doAppend = False
+            if doAppend:
+                blankPrompt.append(i)
+    beautifiedPrompt = ''.join(str(p) for p in blankPrompt)
+    if ifTextOnly == False:
+        completionDiv.value = beautifiedPrompt.strip()
+    else:
+        completionDiv.value = "AI either provided no response or it was only text, change you prompt."
+    console.log("completionDiv.value")
+</py-script>
+</body>
+</html>
