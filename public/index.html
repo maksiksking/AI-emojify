@@ -154,12 +154,12 @@
                 localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
             }
             if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b >= 15) {
-                console.log(localStorage.Ax3kdBnO4klo3pMvl39kFn3b)
-                console.log("eeeeeeeeee")
                 fetch("/vC4B5cmd5ybVouxbC3qnjldC")
                     .then(response => response.json())
                     .then(data => {
                         passingVar = new Date(data.date);
+
+                        console.log(passingVar)
 
                         formRecall = localStorage.oldPassingVar
                         elapse = passingVar.getTime() - new Date(formRecall)
@@ -167,7 +167,12 @@
                     })
                 caretMini2.style.opacity = "0"
 
-                if (stepElapsed > 24) {
+                console.log(localStorage.oldPassingVar)
+                console.log(elapse)
+                console.log(stepElapsed)
+                console.log("//////////////////")
+
+                if (stepElapsed > 10) {
                     localStorage.oldPassingVar = passingVar
                     localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
 
