@@ -577,7 +577,7 @@ def passTxt():
     time.sleep(1)
     from js import thePrompt
 
-    bearer = "Bearer " + process.env.OPENAI_API_KEY
+    bearer = "Bearer " + localStorage.openAI
 
     engine = "text-davinci-003"
 
