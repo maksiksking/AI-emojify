@@ -1,10 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const ntpClient = require('ntp-client');
 
 app.use(express.static('public'));
 
-// Add an endpoint to get the current date and time
+// ntp script
 app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
     ntpClient.getNetworkTime("pool.ntp.org", 123, function(err, date) {
         if(err) {
@@ -16,6 +17,11 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
         res.json({ date });
     });
 });
+
+app.get("ai-emojify.com/keyStorage", (req, res) => {
+    const APIkey = process.env.OPENAI_API_KEY
+    res.json({ APIkey });
+})
 
 app.listen(3030, () => {
     console.log("Server is running on port 3030");

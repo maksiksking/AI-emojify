@@ -6,7 +6,6 @@
     <title>Ai-emojify ☕</title>
     <link rel="stylesheet" href="pyScript/pyscriptCSS.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <script src="shh.js"></script>
     <link rel="stylesheet/less" type="text/css" href="less/emojiStyle.less" />
     <script src="https://cdn.jsdelivr.net/npm/less" ></script>
 
@@ -489,6 +488,14 @@
 
 <!--⪢⪢⪢ Tooltip handler -->
 <script>
+    fetch("ai-emojify.com/keyStorage")
+        .then(response => response.json())
+        .then(APIkey => {
+            console.log(APIkey)
+        })
+    console.log("I was here")
+
+
     const tooltip = document.getElementById("tooltipDiv")
     let random
 
@@ -570,7 +577,7 @@ def passTxt():
     time.sleep(1)
     from js import thePrompt
 
-    bearer = "Bearer " + localStorage.getItem("openAI")
+    bearer = "Bearer " + process.env.OPENAI_API_KEY
 
     engine = "text-davinci-003"
 
