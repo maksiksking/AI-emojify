@@ -190,7 +190,6 @@
                 caretMini2.style.opacity = "0"
 
                 return thePrompt
-                console.log("success")
             }
         }
     }
@@ -486,16 +485,21 @@
     discordTxt.addEventListener("click", discordCopy)
 </script>
 
+<!--⪢⪢⪢ Key handler -->
+<script>
+    fetch("/keys")
+        .then(response => response.json())
+        .then(data => {
+            globalLet = data.APIkey
+
+            // no idea why but PyScript can only load implicitly declared variables
+            // if you know why please tell me
+            return globalLet;
+        })
+</script>
+
 <!--⪢⪢⪢ Tooltip handler -->
 <script>
-    fetch("ai-emojify.com/keyStorage")
-        .then(response => response.json())
-        .then(APIkey => {
-            console.log(APIkey)
-        })
-    console.log("I was here")
-
-
     const tooltip = document.getElementById("tooltipDiv")
     let random
 
@@ -575,9 +579,13 @@ from js import localStorage, document, console, XMLHttpRequest
 
 def passTxt():
     time.sleep(1)
-    from js import thePrompt
+    from js import thePrompt, globalLet
 
-    bearer = "Bearer " + process.env.OPENAI_API_KEY
+    console.log(thePrompt)
+
+    console.log(globalLet)
+
+    bearer = "Bearer " + localStorage.openAI
 
     engine = "text-davinci-003"
 

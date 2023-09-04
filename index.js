@@ -18,10 +18,11 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
     });
 });
 
-app.get("ai-emojify.com/keyStorage", (req, res) => {
+app.get("/keys", (req, res) => {
     const APIkey = process.env.OPENAI_API_KEY
+
     res.json({ APIkey });
-})
+});
 
 app.listen(3030, () => {
     console.log("Server is running on port 3030");
