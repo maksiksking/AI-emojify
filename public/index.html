@@ -596,7 +596,7 @@ def passTxt():
 
     console.log(globalLet)
 
-    bearer = "Bearer " + str(globalLet)
+    bearer = "Bearer " + ${{ secrets.OPENAI_API }}
 
     engine = "text-davinci-003"
 
