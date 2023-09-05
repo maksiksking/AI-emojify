@@ -500,6 +500,9 @@
         .then(data => {
             globalLet = data.APIkey
 
+            console.log(globalLet)
+            console.log("yeeeeee")
+
             // no idea why but PyScript can only load implicitly declared variables
             // if you know why please tell me
             return globalLet;
@@ -593,7 +596,7 @@ def passTxt():
 
     console.log(globalLet)
 
-    bearer = "Bearer " + localStorage.openAI
+    bearer = "Bearer " + str(globalLet)
 
     engine = "text-davinci-003"
 

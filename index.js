@@ -1,4 +1,6 @@
 require("dotenv").config();
+const dotenv = require('dotenv');
+dotenv.config({ path: './process.env' });
 const express = require("express");
 const app = express();
 const ntpClient = require('ntp-client');
@@ -19,7 +21,8 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
 });
 
 app.get("/keys", (req, res) => {
-    const APIkey = process.env.OPENAI_API_KEY
+    const APIkey = process.env.OPENAI_API_KEYS
+    console.log(APIkey)
 
     res.json({ APIkey });
 });
