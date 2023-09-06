@@ -21,6 +21,7 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
 });
 console.log(process.env.OPENAI_API)
 console.log(process.env.OPENAI_API_KEY)
+console.log("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
 
 app.get("/keys", (req, res) => {
