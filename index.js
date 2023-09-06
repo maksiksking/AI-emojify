@@ -19,6 +19,7 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
         res.json({ date });
     });
 });
+console.log(process.env.KEY)
 console.log(process.env.OPENAI_API)
 console.log(process.env.OPENAI_API_KEY)
 console.log("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
@@ -26,7 +27,7 @@ console.log("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
 
 app.get("/keys", (req, res) => {
-    const APIkey = process.env.OPENAI_API
+    const APIkey = process.env.KEY
     console.log(APIkey)
 
     res.json({ APIkey });
