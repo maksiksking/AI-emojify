@@ -27,7 +27,7 @@ console.log("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
 
 app.get("/keys", (req, res) => {
-    const APIkey = process.env.KEY
+    const APIkey = process.env.OPENAI_API_KEY
     console.log(APIkey)
 
     res.json({ APIkey });
