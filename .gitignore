@@ -1,2 +1,2 @@
 public/toDoLIst.md
-.env
+process.env
