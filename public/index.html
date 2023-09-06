@@ -169,17 +169,23 @@
                         passingVar = new Date(data.date);
 
                         console.log(passingVar)
+                        console.log("What the helllllllllllllllllllllllllll")
+
+                        if (localStorage.oldPassingVar === undefined) {
+                            localStorage.oldPassingVar = passingVar
+                        }
+
+                        console.log(localStorage.oldPassingVar)
 
                         formRecall = localStorage.oldPassingVar
                         elapse = passingVar.getTime() - new Date(formRecall)
                         stepElapsed = elapse / (1000 * 60 * 60)
+
+                        console.log(elapse)
+                        console.log(stepElapsed)
+                        console.log("//////////////////")
                     })
                 caretMini2.style.opacity = "0"
-
-                console.log(localStorage.oldPassingVar)
-                console.log(elapse)
-                console.log(stepElapsed)
-                console.log("//////////////////")
 
                 if (stepElapsed > 10) {
                     localStorage.oldPassingVar = passingVar
