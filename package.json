@@ -2,10 +2,10 @@
   "name": "ai-emojifier-node",
   "version": "1.0.0",
   "description": "AI-emojify",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon api/index.js"
   },
   "keywords": [],
   "author": "Maksiks",

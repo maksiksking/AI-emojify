@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 const ntpClient = require('ntp-client');
 
-app.use(express.static('public'));
+app.use(express.static('../public'));
 
 // ntp script
 app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
