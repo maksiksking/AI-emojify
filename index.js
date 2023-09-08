@@ -29,6 +29,8 @@ app.get("/keys", (req, res) => {
     res.json({ APIkey });
 });
 
+module.exports = app;
+
 app.listen(3030, () => {
     console.log("Server is running on port 3030");
 });
