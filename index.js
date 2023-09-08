@@ -29,6 +29,11 @@ app.get("/keys", (req, res) => {
     res.json({ APIkey });
 });
 
+app.get("/", (req, res) => {
+    res.send("Express on Vercel");
+});
+
+
 module.exports = app;
 
 app.listen(3030, () => {
