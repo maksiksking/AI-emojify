@@ -23,7 +23,8 @@ console.log(process.env.OPENAI_API_KEY_LATEST)
 
 
 app.get("/keys", (req, res) => {
-    const APIkey = process.env.OPENAI_API_KEY_LATEST
+    // const APIkey = process.env.OPENAI_API_KEY_LATEST
+    const APIkey = "help"
     console.log(APIkey)
 
     res.json({ APIkey });
