@@ -1,6 +1,6 @@
 require("dotenv").config();
 const dotenv = require('dotenv');
-dotenv.config({ path: './process.env' });
+dotenv.config({ path: '../process.env' });
 const express = require("express");
 const app = express();
 const ntpClient = require('ntp-client');

@@ -110,6 +110,7 @@
     headingTxt = document.getElementById("mainTxt")
     buttonTxt = document.getElementById("buttonTxt")
     footer = document.getElementById("footerContainer")
+    const tooltip = document.getElementById("tooltipDiv")
     let stepElapsed;
     let passingVar;
     let formRecall;
@@ -519,8 +520,6 @@
 
 <!--⪢⪢⪢ Tooltip handler -->
 <script>
-    console.log(process.env.OPENAI_KEY)
-    const tooltip = document.getElementById("tooltipDiv")
     let random
 
     let slowdown = false
