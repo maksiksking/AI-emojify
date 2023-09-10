@@ -7,7 +7,7 @@ const ntpClient = require('ntp-client');
 
 app.use(express.static('../public'));
 
-// ntp script
+// ntp script (unimportant)
 app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
     ntpClient.getNetworkTime("pool.ntp.org", 123, function(err, date) {
         if(err) {
@@ -22,12 +22,12 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
 console.log(process.env.OPENAI_API_KEY_LATEST)
 
 
-app.get("/keys", (req, res) => {
+app.get("/testGet", (req, res) => {
     // const APIkey = process.env.OPENAI_API_KEY_LATEST
-    const APIkey = "help"
-    console.log(APIkey)
+    const test = "help"
+    console.log(test)
 
-    res.json({ APIkey });
+    res.json({ test });
 });
 
 app.listen(3030, () => {

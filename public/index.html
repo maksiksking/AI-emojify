@@ -122,17 +122,23 @@
                 localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
             }
             if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b > 15) {
-                fetch("/vC4B5cmd5ybVouxbC3qnjldC")
-                    .then(response => response.json())
-                    .then(data => {
-                        passingVar = new Date(data.date);
+                // fetch("/vC4B5cmd5ybVouxbC3qnjldC")
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         passingVar = new Date(data.date);
+                //
+                //         formRecall = localStorage.oldPassingVar
+                //         elapse = passingVar.getTime() - new Date(formRecall)
+                //         stepElapsed = elapse / (1000 * 60 * 60)
+                //         console.log(passingVar)
+                //         console.log(stepElapsed)
+                //     })
 
-                        formRecall = localStorage.oldPassingVar
-                        elapse = passingVar.getTime() - new Date(formRecall)
-                        stepElapsed = elapse / (1000 * 60 * 60)
-                        console.log(passingVar)
-                        console.log(stepElapsed)
-                    })
+                passingVar = new Date();
+
+                formRecall = localStorage.oldPassingVar
+                elapse = passingVar.getTime() - new Date(formRecall)
+                stepElapsed = elapse / (1000 * 60 * 60)
                 caretMini2.style.opacity = "0"
 
                 if (!(stepElapsed > 24)) {
@@ -164,28 +170,43 @@
                 localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
             }
             if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b >= 15) {
-                fetch("/vC4B5cmd5ybVouxbC3qnjldC")
-                    .then(response => response.json())
-                    .then(data => {
-                        passingVar = new Date(data.date);
+                // fetch("/vC4B5cmd5ybVouxbC3qnjldC")
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         passingVar = new Date(data.date);
+                //
+                //         console.log(passingVar)
+                //         console.log("What the helllllllllllllllllllllllllll")
+                //
+                //         if (localStorage.oldPassingVar === undefined) {
+                //             localStorage.oldPassingVar = passingVar
+                //         }
+                //
+                //         console.log(localStorage.oldPassingVar)
+                //
+                //         formRecall = localStorage.oldPassingVar
+                //         elapse = passingVar.getTime() - new Date(formRecall)
+                //         stepElapsed = elapse / (1000 * 60 * 60)
+                //
+                //         console.log(elapse)
+                //         console.log(stepElapsed)
+                //         console.log("//////////////////")
+                //     })
 
-                        console.log(passingVar)
-                        console.log("What the helllllllllllllllllllllllllll")
+                // dysfunctional since no back end
 
-                        if (localStorage.oldPassingVar === undefined) {
-                            localStorage.oldPassingVar = passingVar
-                        }
+                passingVar = new Date();
 
-                        console.log(localStorage.oldPassingVar)
+                if (localStorage.oldPassingVar === undefined) {
+                    localStorage.oldPassingVar = passingVar
+                }
 
-                        formRecall = localStorage.oldPassingVar
-                        elapse = passingVar.getTime() - new Date(formRecall)
-                        stepElapsed = elapse / (1000 * 60 * 60)
+                console.log(localStorage.oldPassingVar)
 
-                        console.log(elapse)
-                        console.log(stepElapsed)
-                        console.log("//////////////////")
-                    })
+                formRecall = localStorage.oldPassingVar
+                elapse = passingVar.getTime() - new Date(formRecall)
+                stepElapsed = elapse / (1000 * 60 * 60)
+
                 caretMini2.style.opacity = "0"
 
                 if (stepElapsed > 10) {
@@ -331,6 +352,8 @@
 
     addEventListener("resize", sizeChangeFormMini1)
     addEventListener("load", sizeChangeFormMini1)
+
+    console.log(process.env.OPENAI_API_KEY_LATEST)
 </script>
 
 <!--⪢⪢⪢ Caret blink disappear + proper waiting functions -->
@@ -502,21 +525,21 @@
     discordTxt.addEventListener("click", discordCopy)
 </script>
 
-<!--⪢⪢⪢ Key handler-->
+<!--⪢⪢⪢ Key handler (brokeh since no back end)-->
 <script>
-    console.log("cheese")
-    fetch("/keys")
-        .then(response => response.json())
-        .then(data => {
-            globalLet = data.APIkey
-
-            console.log(globalLet)
-            console.log("yeeeeee")
-
-            // no idea why but PyScript can only load implicitly declared variables
-            // if you know why please tell me
-            return globalLet;
-        })
+    // console.log("cheese")
+    // fetch("/testGet")
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         globalLet = data.test
+    //
+    //         console.log(globalLet)
+    //         console.log("yeeeeee")
+    //
+    //         // no idea why but PyScript can only load implicitly declared variables
+    //         // if you know why please tell me
+    //         return globalLet;
+    //     })
 </script>
 
 <!--⪢⪢⪢ Tooltip handler -->
