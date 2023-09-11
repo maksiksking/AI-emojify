@@ -19,6 +19,7 @@ app.get("/vC4B5cmd5ybVouxbC3qnjldC", (req, res) => {
         res.json({ date });
     });
 });
+console.log("I'm alive")
 console.log(process.env.OPENAI_API_KEY_LATEST)
 
 
