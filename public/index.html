@@ -193,7 +193,6 @@
                 //         console.log("//////////////////")
                 //     })
 
-                // dysfunctional since no back end
 
                 passingVar = new Date();
 
@@ -527,19 +526,19 @@
 
 <!--⪢⪢⪢ Key handler (brokeh since no back end)-->
 <script>
-    // console.log("cheese")
-    // fetch("/testGet")
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         globalLet = data.test
-    //
-    //         console.log(globalLet)
-    //         console.log("yeeeeee")
-    //
-    //         // no idea why but PyScript can only load implicitly declared variables
-    //         // if you know why please tell me
-    //         return globalLet;
-    //     })
+    console.log("cheese")
+    fetch("/testGet")
+        .then(response => response.json())
+        .then(data => {
+            globalLet = data.test
+
+            console.log(globalLet)
+            console.log("yeeeeee")
+
+            // no idea why but PyScript can only load implicitly declared variables
+            // if you know why please tell me
+            return globalLet;
+        })
 </script>
 
 <!--⪢⪢⪢ Tooltip handler -->

@@ -4,8 +4,7 @@
   "description": "AI-emojify",
   "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon api/index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Maksiks",
