@@ -31,7 +31,7 @@ app.get("/testGet", (req, res) => {
     res.json({ test });
 });
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3030
 
 app.listen(port, (err, res) => {
     if (err) {
