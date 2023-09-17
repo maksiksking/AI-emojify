@@ -47,6 +47,7 @@ app.get("/api/ntp", (req, res) => {
     });
 });
 
+// key script
 app.get('/api/key', (req, res) => {
     res.json(process.env.OPENAI_API_KEY_LATEST);
 });
