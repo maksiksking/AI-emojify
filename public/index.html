@@ -122,23 +122,17 @@
                 localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
             }
             if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b > 15) {
-                // fetch("/vC4B5cmd5ybVouxbC3qnjldC")
-                //     .then(response => response.json())
-                //     .then(data => {
-                //         passingVar = new Date(data.date);
-                //
-                //         formRecall = localStorage.oldPassingVar
-                //         elapse = passingVar.getTime() - new Date(formRecall)
-                //         stepElapsed = elapse / (1000 * 60 * 60)
-                //         console.log(passingVar)
-                //         console.log(stepElapsed)
-                //     })
+                fetch("/api/ntp")
+                    .then(response => response.json())
+                    .then(data => {
+                        passingVar = new Date(data.date);
 
-                passingVar = new Date();
-
-                formRecall = localStorage.oldPassingVar
-                elapse = passingVar.getTime() - new Date(formRecall)
-                stepElapsed = elapse / (1000 * 60 * 60)
+                        formRecall = localStorage.oldPassingVar
+                        elapse = passingVar.getTime() - new Date(formRecall)
+                        stepElapsed = elapse / (1000 * 60 * 60)
+                        console.log(passingVar)
+                        console.log(stepElapsed)
+                    })
                 caretMini2.style.opacity = "0"
 
                 if (!(stepElapsed > 24)) {
@@ -170,41 +164,28 @@
                 localStorage.Ax3kdBnO4klo3pMvl39kFn3b = 0
             }
             if (localStorage.Ax3kdBnO4klo3pMvl39kFn3b >= 15) {
-                // fetch("/vC4B5cmd5ybVouxbC3qnjldC")
-                //     .then(response => response.json())
-                //     .then(data => {
-                //         passingVar = new Date(data.date);
-                //
-                //         console.log(passingVar)
-                //         console.log("What the helllllllllllllllllllllllllll")
-                //
-                //         if (localStorage.oldPassingVar === undefined) {
-                //             localStorage.oldPassingVar = passingVar
-                //         }
-                //
-                //         console.log(localStorage.oldPassingVar)
-                //
-                //         formRecall = localStorage.oldPassingVar
-                //         elapse = passingVar.getTime() - new Date(formRecall)
-                //         stepElapsed = elapse / (1000 * 60 * 60)
-                //
-                //         console.log(elapse)
-                //         console.log(stepElapsed)
-                //         console.log("//////////////////")
-                //     })
+                fetch("/api/ntp")
+                    .then(response => response.json())
+                    .then(data => {
+                        passingVar = new Date(data.date);
 
+                        console.log(passingVar)
+                        console.log("What the helllllllllllllllllllllllllll")
 
-                passingVar = new Date();
+                        if (localStorage.oldPassingVar === undefined) {
+                            localStorage.oldPassingVar = passingVar
+                        }
 
-                if (localStorage.oldPassingVar === undefined) {
-                    localStorage.oldPassingVar = passingVar
-                }
+                        console.log(localStorage.oldPassingVar)
 
-                console.log(localStorage.oldPassingVar)
+                        formRecall = localStorage.oldPassingVar
+                        elapse = passingVar.getTime() - new Date(formRecall)
+                        stepElapsed = elapse / (1000 * 60 * 60)
 
-                formRecall = localStorage.oldPassingVar
-                elapse = passingVar.getTime() - new Date(formRecall)
-                stepElapsed = elapse / (1000 * 60 * 60)
+                        console.log(elapse)
+                        console.log(stepElapsed)
+                        console.log("//////////////////")
+                    })
 
                 caretMini2.style.opacity = "0"
 
@@ -525,10 +506,10 @@
 <!--⪢⪢⪢ Key handler (brokeh since no back end)-->
 <script>
     console.log("cheese")
-    fetch("/testGet")
-        .then(response => response.json())
+    fetch("/api/key")
+        .then(data => data.json())
         .then(data => {
-            globalLet = data.test
+            globalLet = JSON.stringify(data)
 
             console.log(globalLet)
             console.log("yeeeeee")
