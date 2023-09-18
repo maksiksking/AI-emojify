@@ -26,7 +26,7 @@
         <li><a href="index.html"><img src="gallery/mainLogo.svg" id="icon" alt="oh" draggable="false"></a></li>
         <li id="nameText"><a id="ntxTxtLnk" href="index.html">AI-emojify</a></li>
         <li><a id="ko-fiLink" href="https://ko-fi.com/maksiks"><img src="gallery/Ko-fi.svg" id="ko-fiIcon" alt="oh" draggable="false"></a></li>
-        <li id="contactText"><a id="ctcTxtLnk" href="">contact</a></li>
+<!--        <li id="contactText"><a id="ctcTxtLnk" href="">contact</a></li>-->
         <!-- Insert the contact page-->
         <!-- Also a friendly reminder to add the arrow-->
         <!-- maybe add a prompt log-->
@@ -34,7 +34,7 @@
 </div>
 
 <!-- ⪢⪢⪢ Temp WEEWOO-->
-<div id="weeWoo"></div>
+<!--<div id="weeWoo"></div>-->
 
 
 <img src="gallery/mainTxt.webp" id="mainTxt" alt="oh no, imagine I'm like text">
@@ -51,19 +51,19 @@
 
 <!-- ⪢⪢⪢ First (main page) form-->
 <div id="mainForm">
-    <textarea id="emojify" name="main"></textarea><br><br>
+    <textarea id="emojify" name="main" maxlength="400"></textarea><br><br>
     <img src="gallery/txtBox.svg" id="formBg" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caret" alt="I am a blinking caret. Blink blink.">
 </div>
 <!-- ⪢⪢⪢ Mini formies-->
 <div id="miniForm1">
-    <textarea id="emojifyMini1" name="main" readonly></textarea><br><br>
+    <textarea id="emojifyMini1" name="main" readonly maxlength="400"></textarea><br><br>
     <img src="gallery/txtBoxSmall.svg" id="formBgMini1" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caretMini1" alt="I am a blinking caret. Blink blink.">
 </div>
 
 <div id="miniForm2">
-    <textarea id="emojifyMini2" name="main" readonly></textarea><br><br>
+    <textarea id="emojifyMini2" name="main" readonly maxlength="400"></textarea><br><br>
     <img src="gallery/txtBoxSmall.svg" id="formBgMini2" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caretMini2" alt="I am a blinking caret. Blink blink.">
 </div>
@@ -527,6 +527,7 @@
     tooltip.style.width = "43vw"
 
     const tooltips = [
+        "Tip: \n𝕦ⓝｉς𝑜𝕕𝑒 ᶤ𝕊 𝕨𝓔𝓘Ｒ ͩͩͩͩͩ ร๏𝐦є𝓽เ𝓂ｅ̺̺̺̺̺s̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺\" - Sun Tzu, art of war",
         "Tip: If AI generates nothing, try adding \"In emoji\" to your prompt.",
         "Tip: You can use command prompts like \"Explain the script of bee movie\".",
         "Tip: The response is too short? Try \"Keep your response bigger\".",
@@ -538,9 +539,10 @@
         "Plug: Running this website is not free and these 2 ads don't make enough, consider becoming a Ko-Fi supporter.",
         "Thank you for visiting, random stranger on the internet.",
         "Tip: 🥐🔪🥐🔪🥐🔪🥐🔪 😨 🤖🤖⬅️👿",
+        "Tip: 🚨🤖🛰🤖🛰🤖🛰🔪 😨😨 🤖🤖⬅️👿🚨",
         "Tip: Someone stole all my cookies. One of them did something special on click",
         "Plug: Check out my social media at the bottom of the page.",
-        "Tip: This website is 1200+ lines of code in total.",
+        "Tip: This website is 1300+ lines of code in total.",
         "Tip: Have a nice day. Seriously, just have a nice day whoever you are.",
         "Support the heroes of Ukraine 🌻, let's end this war together! <a href='https://savelife.in.ua'>💙 savelife.in.ua 💛</a>",
         "Support the heroes of Ukraine 🌻, let's end this war together! <a href='https://savelife.in.ua'>💙 savelife.in.ua 💛</a>",
@@ -553,9 +555,9 @@
     function swipSwap(isOnLoad) {
         const oldRandom = random
 
-        random = Math.floor(Math.random() * 20);
+        random = Math.floor(Math.random() * 2);
         while (oldRandom === random) {
-            random = Math.floor(Math.random() * 20);
+            random = Math.floor(Math.random() * 2);
         }
 
         if (isOnLoad !== undefined) {
