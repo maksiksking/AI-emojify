@@ -9,6 +9,7 @@ html {
   background-image: url("../gallery/bg1.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
