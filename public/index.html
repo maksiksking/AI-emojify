@@ -509,10 +509,8 @@
     fetch("/api/key")
         .then(data => data.json())
         .then(data => {
-            globalLet = JSON.stringify(data)
-
-            console.log(globalLet)
-            console.log("yeeeeee")
+            globalLetFirst = JSON.stringify(data)
+            globalLet = globalLetFirst.replaceAll("\"", '')
 
             // no idea why but PyScript can only load implicitly declared variables
             // if you know why please tell me
@@ -603,10 +601,6 @@ from js import localStorage, document, console, XMLHttpRequest
 def passTxt():
     time.sleep(1)
     from js import thePrompt, globalLet
-
-    console.log(thePrompt)
-
-    console.log(globalLet)
 
     bearer = "Bearer " + str(globalLet)
 
