@@ -51,19 +51,19 @@
 
 <!-- ⪢⪢⪢ First (main page) form-->
 <div id="mainForm">
-    <textarea id="emojify" name="main" maxlength="400"></textarea><br><br>
+    <textarea id="emojify" name="main" maxlength="500"></textarea><br><br>
     <img src="gallery/txtBox.svg" id="formBg" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caret" alt="I am a blinking caret. Blink blink.">
 </div>
 <!-- ⪢⪢⪢ Mini formies-->
 <div id="miniForm1">
-    <textarea id="emojifyMini1" name="main" readonly maxlength="400"></textarea><br><br>
+    <textarea id="emojifyMini1" name="main" readonly maxlength="500"></textarea><br><br>
     <img src="gallery/txtBoxSmall.svg" id="formBgMini1" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caretMini1" alt="I am a blinking caret. Blink blink.">
 </div>
 
 <div id="miniForm2">
-    <textarea id="emojifyMini2" name="main" readonly maxlength="400"></textarea><br><br>
+    <textarea id="emojifyMini2" name="main" readonly maxlength="500"></textarea><br><br>
     <img src="gallery/txtBoxSmall.svg" id="formBgMini2" alt="pretend like this didn't happen and this a textbox, also contact if me if broke that badly">
     <img src="gallery/caret.svg" id="caretMini2" alt="I am a blinking caret. Blink blink.">
 </div>
@@ -100,7 +100,6 @@
             <br>Have a cookie! -><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D">🍪</a><-</p>
     </div>
 </div>
-
 
 <!-- ⪢⪢⪢ Conversion script (first one) + video box anim handler -->
 <script>
@@ -417,6 +416,8 @@
         await sleep(5400);
         youMayPass = true
 
+        await sleep(1000);
+
         caretMini1.style.animation = "caretBlink .5s alternate infinite"
         caretMini2.style.animation = "caretBlink .5s alternate infinite"
 
@@ -443,12 +444,17 @@
 
         formMini1.style.animation = "formiesUp 2s ease-in-out forwards"
         formMini2.style.animation = "formiesUp 2s ease-in-out forwards"
+
         paddingOne.style.animation = "buttonUp 2s ease-in-out forwards"
         buttonTxt.style.animation = "buttonUp 2s ease-in-out forwards"
 
         footer.style.display = "flex"
         footer.style.animation = "footerPopping 3s forwards ease-in-out"
         tooltip.style.opacity = "100%"
+
+        await sleep(6000);
+        formMini1.style.animation="animMove1 2s linear forwards"
+        formMini2.style.animation="animMove2 2s linear forwards"
     }
 
     function vanish() {
@@ -555,9 +561,9 @@
     function swipSwap(isOnLoad) {
         const oldRandom = random
 
-        random = Math.floor(Math.random() * 2);
+        random = Math.floor(Math.random() * 22);
         while (oldRandom === random) {
-            random = Math.floor(Math.random() * 2);
+            random = Math.floor(Math.random() * 22);
         }
 
         if (isOnLoad !== undefined) {

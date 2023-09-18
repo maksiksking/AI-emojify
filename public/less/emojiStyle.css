@@ -248,6 +248,26 @@ h1 {
     color: transparent;
   }
 }
+@keyframes animMove1 {
+  from {
+    left: 27.3%;
+    top: 47%;
+  }
+  to {
+    left: 30.3%;
+    top: 47%;
+  }
+}
+@keyframes animMove2 {
+  from {
+    left: 72.8%;
+    top: 47%;
+  }
+  to {
+    left: 69.8%;
+    top: 47%;
+  }
+}
 #miniForm1 {
   position: absolute;
   top: 55%;
