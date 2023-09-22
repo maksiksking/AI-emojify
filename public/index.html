@@ -63,8 +63,11 @@
 </div>
 
 <!-- ⪢⪢⪢ Main transfer button -->
-<button py-click="passTxt()" id="paddingOne" class="py-button"></button>
-<h1 id="buttonTxt">emojify!</h1>
+<div id="buttonContainer">
+    <button py-click="passTxt()" id="paddingOne" class="py-button"></button>
+    <img src="gallery/theButton.svg" id="buttonImg">
+    <p id="buttonTxt">emojify!</p>
+</div>
 
 <!--⪢⪢⪢ Footer -->
 <div id="footerContainer">
@@ -97,13 +100,13 @@
 
 <!-- ⪢⪢⪢ Conversion script (first one) + video box anim handler -->
 <script>
+    buttonDiv = document.getElementById("buttonContainer");
     paddingOne = document.getElementById("paddingOne");
     theForm = document.getElementById("emojify");
     animVid = document.getElementById("animBoxes");
-    headingTxt = document.getElementById("mainTxt")
-    buttonTxt = document.getElementById("buttonTxt")
-    footer = document.getElementById("footerContainer")
-    const tooltip = document.getElementById("tooltipDiv")
+    headingTxt = document.getElementById("mainTxt");
+    footer = document.getElementById("footerContainer");
+    const tooltip = document.getElementById("tooltipDiv");
     let stepElapsed;
     let passingVar;
     let formRecall;
@@ -229,6 +232,8 @@
             formMini1.style.display = "initial"
             formMini2.style.display = "initial"
 
+            buttonDiv.style.top = "78vh"
+
             formMini1.style.top = "47%"
             formMini2.style.top = "47%"
 
@@ -236,7 +241,6 @@
             formMini2.style.left = "69.8%"
 
             paddingOne.style.top = "79vh"
-            buttonTxt.style.top = "79vh"
 
             caretMini1.style.animation = "caretBlink .5s alternate infinite"
             caretMini2.style.animation = "caretBlink .5s alternate infinite"
@@ -292,18 +296,18 @@
     // mini 1
 
     formMini1 = document.getElementById("miniForm1");
-    formImageMini1 = document.getElementById("formBgMini1");
+    // formImageMini1 = document.getElementById("formBgMini1");
     formInputMini1 = document.getElementById("emojifyMini1");
 
     function sizeChangeFormMini1() {
         const dimInput = formInputMini1.getBoundingClientRect()
 
-        formInputMini1.style.width = formImageMini1.offsetWidth*0.95 + "px"
-        formInputMini1.style.right = dimInput.right + dimInput.right*0.15 + "px"
-        // oh, this one actually does nothing too but the whole thing. I think.
-
-        formInputMini1.style.height = formImageMini1.offsetHeight*0.88 + "px"
-        formInputMini1.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
+        // formInputMini1.style.width = formImageMini1.offsetWidth*0.95 + "px"
+        // formInputMini1.style.right = dimInput.right + dimInput.right*0.15 + "px"
+        // // oh, this one actually does nothing too but the whole thing. I think.
+        //
+        // formInputMini1.style.height = formImageMini1.offsetHeight*0.88 + "px"
+        // formInputMini1.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
     }
 
     addEventListener("resize", sizeChangeFormMini1)
@@ -443,8 +447,7 @@
         formMini1.style.animation = "formiesUp 2s ease-in-out forwards"
         formMini2.style.animation = "formiesUp 2s ease-in-out forwards"
 
-        paddingOne.style.animation = "buttonUp 2s ease-in-out forwards"
-        buttonTxt.style.animation = "buttonUp 2s ease-in-out forwards"
+        buttonDiv.style.animation = "buttonUp 2s ease-in-out forwards"
 
         footer.style.display = "flex"
         footer.style.animation = "footerPopping 3s forwards ease-in-out"
@@ -528,8 +531,6 @@
 
     let slowdown = false
 
-    tooltip.style.width = "43vw"
-
     const tooltips = [
         "Tip: \n𝕦ⓝｉς𝑜𝕕𝑒 ᶤ𝕊 𝕨𝓔𝓘Ｒ ͩͩͩͩͩ ร๏𝐦є𝓽เ𝓂ｅ̺̺̺̺̺s̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺\" - Sun Tzu, art of war",
         "Tip: If AI generates nothing, try adding \"In emoji\" to your prompt.",
@@ -569,16 +570,7 @@
             return
         }
 
-        if (random === 4 || random === 7) {
-            if (tooltip.style.width === "43vw") {
-                tooltip.style.width = tooltip.offsetWidth * 1.3 + "px"
-                slowdown = true
-            }
-        }
-        else {
-            tooltip.style.width = "43vw"
-        }
-
+        // DEBUG I think
         if (slowdown === true) {
             setTimeout(() => {
                 tooltip.innerHTML = tooltips[random]
