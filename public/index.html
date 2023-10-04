@@ -232,7 +232,6 @@
 
             footer.style.display = "flex"
             footer.style.bottom = "0"
-            headingTxt.src = "gallery/alrPageTxtReal.webp"
             headingTxt.style.top = "24%"
 
             form.style.display = "none";
@@ -242,16 +241,22 @@
             buttonDiv.style.top = "78vh"
 
             if (window.mobileCheck()) {
-                console.log("YEEEEEEEEEEEEEEEE")
+                console.log("Mobile mode")
                 formMini1.style.top = "50%"
                 formMini2.style.top = "80%"
+
                 formMini1.style.left = "50%"
                 formMini2.style.left = "50%"
+
+                headingTxt.src = "gallery/alrPageTxtRealMobile.webp"
             } else {
                 formMini1.style.top = "47%"
                 formMini2.style.top = "47%"
+
                 formMini1.style.left = "30.3%"
                 formMini2.style.left = "69.8%"
+
+                headingTxt.src = "gallery/alrPageTxtReal.webp"
             }
 
             buttonDiv.style.top = "79vh"

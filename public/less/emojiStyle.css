@@ -14,6 +14,11 @@ html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
+@media screen and (max-width: 767px) {
+  html {
+    background-position: center;
+  }
+}
 #mainForm {
   position: absolute;
   top: 63%;
@@ -114,7 +119,7 @@ html {
     margin-top: -22%;
   }
 }
-Fai #ko-fiIcon:hover {
+#ko-fiIcon:hover {
   transform: scale(1.1);
 }
 #header {
@@ -190,9 +195,9 @@ Fai #ko-fiIcon:hover {
 }
 @media screen and (max-width: 767px) {
   #mainTxt {
-    transform: scale(3);
-    margin-left: -20%;
-    margin-top: -20%;
+    transform: scale(1.7) translate(-50%, -50%);
+    margin-top: -10%;
+    left: 70%;
   }
 }
 #formBg {
@@ -638,6 +643,15 @@ Fai #ko-fiIcon:hover {
   transition: all 0.75s 0ms;
   user-select: text;
   z-index: 1002;
+}
+@media screen and (max-width: 767px) {
+  #tooltipDiv {
+    top: 22%;
+    width: 97vw;
+    height: 8vh;
+    font-size: 4vw;
+    line-height: 24px;
+  }
 }
 #tooltipDiv a {
   text-decoration: none;
