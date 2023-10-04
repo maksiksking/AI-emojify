@@ -89,6 +89,13 @@ html {
   width: 13vh;
   transition: all 0.75s 0ms;
 }
+@media screen and (max-width: 767px) {
+  #icon {
+    transform: scale(0.5);
+    margin-left: -35%;
+    margin-top: -20%;
+  }
+}
 #icon:hover {
   transform: scale(1.1);
 }
@@ -100,7 +107,14 @@ html {
   transition: all 0.75s 0ms;
   z-index: 999;
 }
-#ko-fiIcon:hover {
+@media screen and (max-width: 767px) {
+  #ko-fiIcon {
+    transform: scale(0.5);
+    margin-left: -21%;
+    margin-top: -22%;
+  }
+}
+Fai #ko-fiIcon:hover {
   transform: scale(1.1);
 }
 #header {
@@ -113,6 +127,12 @@ html {
   height: 20vh;
   z-index: 1005;
   transition: all 0.75s 0ms;
+}
+@media screen and (max-width: 767px) {
+  #header {
+    width: 100%;
+    height: 11vh;
+  }
 }
 #header ul {
   margin-left: 5%;
@@ -135,6 +155,13 @@ html {
   margin-left: 2%;
   transition: all 0.75s 0ms;
   font-size: 3.3vw;
+}
+@media screen and (max-width: 767px) {
+  #nameText {
+    transform: scale(2);
+    margin-left: -8%;
+    margin-top: 3%;
+  }
 }
 #nameText:hover {
   transform: scale(1.1);
@@ -160,6 +187,13 @@ html {
   width: 51%;
   user-select: none;
   pointer-events: none;
+}
+@media screen and (max-width: 767px) {
+  #mainTxt {
+    transform: scale(3);
+    margin-left: -20%;
+    margin-top: -20%;
+  }
 }
 #formBg {
   position: absolute;
@@ -291,6 +325,11 @@ html {
   height: 32vh;
   display: none;
 }
+@media screen and (max-width: 767px) {
+  #miniForm1 {
+    width: 100%;
+  }
+}
 #miniForm1 textarea {
   box-sizing: border-box;
   background-color: transparent;
@@ -320,6 +359,11 @@ html {
   pointer-events: none;
   width: 39.8vw;
 }
+@media screen and (max-width: 767px) {
+  #formBgMini1 {
+    width: 100%;
+  }
+}
 #miniForm2 {
   position: absolute;
   top: 55%;
@@ -329,6 +373,11 @@ html {
   width: 40vw;
   height: 32vh;
   display: none;
+}
+@media screen and (max-width: 767px) {
+  #miniForm2 {
+    width: 100%;
+  }
 }
 #miniForm2 textarea {
   cursor: not-allowed;
@@ -360,6 +409,11 @@ html {
 #formBgMini2 {
   pointer-events: none;
   width: 39.8vw;
+}
+@media screen and (max-width: 767px) {
+  #formBgMini2 {
+    width: 100%;
+  }
 }
 @keyframes txtAnim {
   0% {
