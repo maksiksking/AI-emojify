@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crabs</title>
+</head>
+<body style="background-color: black">
+<video muted autoplay loop playsinline id="video" width="1200px" height="800px" style="position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%)">
+    <source src="gallery/video/cheese.mp4" type="video/mp4">
+</video>
+<script>
+    let video = document.querySelector('video[muted][autoplay]');
+    window.addEventListener('load', async () => {
+        video.muted = false;
+        try {
+            await video.play();
+        } catch (err) {
+            console.log("ooh");
+        }
+    });
+
+    addEventListener("click", () => {
+        video.play()
+        let lol = document.getElementById("lol")
+        lol.style.display="none"
+    })
+</script>
+<div id="lol" style="background-color: #e5e5f7; opacity: 0.8; background: linear-gradient(135deg, rgba(62,251,163,0.33) 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #2fff85 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, rgba(62,251,163,0.33) 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%) 0px 0/ 20px 20px;; position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); border-radius: 3px; width: 20%; height: 10%; pointer-events: none; box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; text-align: center; vertical-align: center; font-family: Verdana; color: black; font-weight: bold; cursor: text"> Copy this text and send it to Maksiks: 522t34helD4</div>
+</body>
+</html>
