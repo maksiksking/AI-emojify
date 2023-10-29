@@ -87,7 +87,6 @@ html {
 }
 @media screen and (max-width: 767px) {
   #paddingOne {
-    background-color: #ffa016;
     z-index: 10000;
   }
 }
