@@ -308,23 +308,6 @@
         }
     })
 
-    // function sizeChangeForm() {
-    //     const dimInput = formInput.getBoundingClientRect()
-    //
-    //     // The percentage is added in js because yes
-    //
-    //     formInput.style.width = formImage.offsetWidth*0.95 + "px"
-    //     formInput.style.right = dimInput.right + dimInput.right*0.15 + "px"
-    //     // ^ the right one doesn't actually do anything but it better be just in case
-    //     // Probably because it's transformed in css
-    //
-    //     formInput.style.height = formImage.offsetHeight*0.88 + "px"
-    //     formInput.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
-    //     form.style.height = formInput.style.height
-    // }
-    //
-    // addEventListener("resize", sizeChangeForm)
-    // addEventListener("load", sizeChangeForm)
 
     // mini 1
 
@@ -334,13 +317,6 @@
 
     function sizeChangeFormMini1() {
         const dimInput = formInputMini1.getBoundingClientRect()
-
-        // formInputMini1.style.width = formImageMini1.offsetWidth*0.95 + "px"
-        // formInputMini1.style.right = dimInput.right + dimInput.right*0.15 + "px"
-        // // oh, this one actually does nothing too but the whole thing. I think.
-        //
-        // formInputMini1.style.height = formImageMini1.offsetHeight*0.88 + "px"
-        // formInputMini1.style.bottom = dimInput.bottom + dimInput.bottom*0.06 + "px"
     }
 
     addEventListener("resize", sizeChangeFormMini1)

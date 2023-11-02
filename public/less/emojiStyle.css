@@ -572,6 +572,12 @@ html {
   width: 6.8%;
   margin-left: 2%;
 }
+@media screen and (max-width: 767px) {
+  .logos {
+    width: 10.8vw;
+    height: 80%;
+  }
+}
 #youtubeLogo {
   background-image: url("../gallery/youtube.svg");
 }
